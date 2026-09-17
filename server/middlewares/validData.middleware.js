@@ -1,4 +1,4 @@
-export const register = (schema) => {
+export const validData = (schema) => {
   return (req, res, next) => {
     const result = schema.safeParse(req.body);
     if (!result.success)
@@ -7,3 +7,4 @@ export const register = (schema) => {
     next();
   };
 };
+
