@@ -14,7 +14,7 @@ export default function useAuth() {
     try {
       const res = await register(data);
       setUser(res.user);
-    } catch {
+    } catch (e) {
       setError("request failed");
     } finally {
       setLoading(false);
@@ -28,7 +28,7 @@ export default function useAuth() {
       const res = await login(data);
       addToken(res.token);
       setUser(res.user);
-    } catch {
+    } catch (e) {
       setError("request failed");
     } finally {
       setLoading(false);
@@ -43,7 +43,7 @@ export default function useAuth() {
     try {
       const res = await profile(token);
       setUser(res.user);
-    } catch {
+    } catch (e) {
       setError("request failed");
     } finally {
       setLoading(false);

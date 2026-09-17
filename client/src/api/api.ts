@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3001/auth",
+  baseURL: "http://localhost:3000/auth",
 });
 
 export type User = {
@@ -11,7 +11,7 @@ export type User = {
 };
 
 export type RegisterData = {
-  name: string;
+  username: string;
   email: string;
   password: string;
 };
@@ -23,6 +23,7 @@ export type LoginData = {
 
 export async function register(data: RegisterData) {
   const res = await api.post<{ user: User }>("/register", data);
+  console.log(res)
   return res.data;
 }
 
